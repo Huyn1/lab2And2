@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Demo21TodoDAO {
-    private SQLiteDatabase db;
+    public static Object deleteTodo;
+    private static SQLiteDatabase db;
 
     public Demo21TodoDAO(Context context) {
         Demo21TodoDatabaseHelper dbHelper = new Demo21TodoDatabaseHelper(context);
@@ -57,7 +58,7 @@ public class Demo21TodoDAO {
                 "id = ?",
                 new String[]{String.valueOf(id)});
     }
-    public void updateTodo(demo21Todo todo) {
+    public static void updateTodo(demo21Todo todo) {
         ContentValues values = new ContentValues();
         values.put("title", todo.getTitle());
         values.put("content", todo.getContent());
@@ -69,7 +70,7 @@ public class Demo21TodoDAO {
                 new String[]{String.valueOf(todo.getId())});
     }
 
-    public void deleteTodo(int id) {
+    public static void deleteTodo(int id) {
         db.delete("todos",
                 "id = ?",
                 new String[]{String.valueOf(id)});

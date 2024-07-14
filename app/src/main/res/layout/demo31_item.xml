@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".demo1.Demo2.Demoo21MainActivity">
-
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Title:" />
 
     <EditText
-        android:id="@+id/etTitle"
+        android:id="@+id/et31Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -22,7 +19,7 @@
         android:text="Content:" />
 
     <EditText
-        android:id="@+id/etContent"
+        android:id="@+id/et31Content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -32,7 +29,7 @@
         android:text="Date:" />
 
     <EditText
-        android:id="@+id/etDate"
+        android:id="@+id/et31Date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -42,24 +39,19 @@
         android:text="Type:" />
 
     <EditText
-        android:clickable="false"
-        android:focusable="false"
-        android:inputType="none"
-        android:cursorVisible="false"
-        android:id="@+id/etType"
+
+        android:id="@+id/et31Type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btnAdd"
+        android:id="@+id/btnUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ADD" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/draft21_recyclerView"
+        android:text="Update" />
+    <Button
+        android:id="@+id/btnCancel"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="8dp" />
+        android:layout_height="wrap_content"
+        android:text="Cancel" />
 </LinearLayout>

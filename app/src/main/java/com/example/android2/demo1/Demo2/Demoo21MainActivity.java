@@ -1,6 +1,7 @@
 package com.example.android2.demo1.Demo2;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,13 +36,26 @@ public class Demoo21MainActivity extends AppCompatActivity {
         etContent = findViewById(R.id.etContent);
         etDate = findViewById(R.id.etDate);
         etType = findViewById(R.id.etType);
+        etType.setOnClickListener(v -> {
+            String[] loaiCV = {"loai1","loai2","loai 3"};
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Chon Type");
+            builder.setItems(loaiCV, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                   etType.setText(loaiCV[which]);
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        });
         btnAdd = findViewById(R.id.btnAdd);
         recyclerView = findViewById(R.id.draft21_recyclerView);
 
         todoDAO = new Demo21TodoDAO(this);
         todoList = todoDAO.getAllTodos();
 
-        adapter = new Demo21TodoAdapter(todoList);
+        adapter = new Demo21TodoAdapter(this,todoList,todoDAO);
         recyclerView.setLayoutManager(new LinearLayoutManager(
                 Demoo21MainActivity.this));
         recyclerView.setAdapter(adapter);
